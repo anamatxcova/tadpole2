@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CharacterMovement : MonoBehaviour
 {
@@ -22,15 +23,27 @@ public class CharacterMovement : MonoBehaviour
     public bool facingLeft = true;
 
     private SpriteRenderer rend;
+    private GameObject gameOverPanel;
+    private GameObject levelChanger;
 	private bool canHide = false;
 	public bool hiding = false;
-    public GameObject gameOverPanel;
-    public GameObject levelChanger;
     public FoodBar foodBar;
-
+    public static CharacterMovement Instance;
 
     void Start()
     {
+        // Deal with duplicates in DontDestroyOnLoad
+        if (Instance != null)
+        {
+            Destroy(this.gameObject);
+            return;
+        }
+
+        Instance = this;
+        GameObject.DontDestroyOnLoad(this.gameObject);
+
+        gameOverPanel = GameObject.Find("GameOverPanel");
+        levelChanger = GameObject.Find("Level Changer");
         body = GetComponent<Rigidbody2D>();
         rend = GetComponent<SpriteRenderer>();
         foodBar.setBar(foodPoint);
@@ -38,6 +51,7 @@ public class CharacterMovement : MonoBehaviour
 
     void Update()
     {
+
         // Gives a value between -1 and 1
         horizontal = Input.GetAxisRaw("Horizontal"); // -1 is left
         vertical = Input.GetAxisRaw("Vertical"); // -1 is down
@@ -94,9 +108,11 @@ public class CharacterMovement : MonoBehaviour
         if (CharacterMovement.foodPoint >= maxFood && other.gameObject.tag.Equals("Bed"))
         {
             // If the food bar is full (equls maxFood) start sleep
+
+            SceneManager.LoadScene(4, LoadSceneMode.Single); // Play closing cutscene
             levelChanger.SetActive(true);
 
-            // Change tadpole animation here
+            // Change tadpole to tadpole with legs here
         }
 	}
 
@@ -130,5 +146,15 @@ public class CharacterMovement : MonoBehaviour
     {
         yield return new WaitForSeconds(0.75f);
         animator.SetBool("isEating", false);
+    }
+
+    private void OnLevelWasLoaded(int level)
+    {
+        FindStartPos();
+    }
+
+    void FindStartPos()
+    {
+        transform.position = GameObject.FindWithTag("StartPos").transform.position;
     }
 }

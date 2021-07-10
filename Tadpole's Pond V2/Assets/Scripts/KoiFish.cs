@@ -22,14 +22,13 @@ public class KoiFish : MonoBehaviour
 	public bool facingLeft = true;
     float horizontal;
     float vertical;
-
-    [SerializeField]
-	Transform player;
+	private Transform player;
 
 
     // Start is called before the first frame update
     void Start()
     {
+        player = GameObject.FindWithTag("Player").transform;
         thePlayer = FindObjectOfType<CharacterMovement> ();
         rend = GetComponent<SpriteRenderer>();	
 		rb = GetComponent<Rigidbody2D> ();

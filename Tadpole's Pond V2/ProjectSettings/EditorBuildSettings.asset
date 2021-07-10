@@ -12,9 +12,15 @@ EditorBuildSettings:
     path: Assets/Scenes/StartMenu.unity
     guid: 4605864238b875640b02c1b8f0093863
   - enabled: 1
+    path: Assets/Scenes/cutscenes/OpeningCutscene 1.unity
+    guid: d910c751fd2c56c4681f4d3bb3b4464f
+  - enabled: 1
     path: Assets/Scenes/SafeRoom Scene.unity
     guid: 2050151a74aede0449ccdd4b1d9e1165
   - enabled: 1
     path: Assets/Scenes/FirstLevel.unity
     guid: b2aaccf3b22ad254b905d1847eaf53f5
+  - enabled: 1
+    path: Assets/Scenes/cutscenes/ClosingCutscene.unity
+    guid: 5469a61f85e28f3469b36f2ddc3f329a
   m_configObjects: {}

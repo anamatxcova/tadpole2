@@ -19,18 +19,17 @@ public class Enemy : MonoBehaviour
     float horizontal;
     float vertical;
 	int stunFactor = 1;
-
-    [SerializeField]
-	Transform player;
+	private Transform player;
 
 
     // Start is called before the first frame update
     void Start()
     {
+		player = GameObject.FindWithTag("Player").transform;
         thePlayer = FindObjectOfType<CharacterMovement> ();
-        rend = GetComponent<SpriteRenderer>();	
+        rend = GetComponent<SpriteRenderer> ();	
 		rb = GetComponent<Rigidbody2D> ();
-		startPos = GetComponent<Transform>().position;
+		startPos = GetComponent<Transform> ().position;
 		chase = false;
 		run = false;
     }
