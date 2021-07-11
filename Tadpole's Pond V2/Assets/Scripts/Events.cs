@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class Events : MonoBehaviour
 {
+    
     // Replay level
     public void ReplayLevel()
     {
@@ -16,4 +17,5 @@ public class Events : MonoBehaviour
     {
         SceneManager.LoadScene(0);
     }
+
 }

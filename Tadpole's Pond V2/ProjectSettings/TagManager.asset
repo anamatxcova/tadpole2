@@ -9,6 +9,7 @@ TagManager:
   - Hiding spot
   - Bed
   - StartPos
+  - Game Over
   layers:
   - Default
   - TransparentFX

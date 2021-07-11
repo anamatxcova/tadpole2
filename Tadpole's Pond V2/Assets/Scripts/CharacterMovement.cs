@@ -10,6 +10,7 @@ public class CharacterMovement : MonoBehaviour
     private float tadLoc;
     private int maxFood = 5;
     static int foodPoint = 0;
+    public static string status;
 
     float horizontal;
     float vertical;
@@ -23,8 +24,8 @@ public class CharacterMovement : MonoBehaviour
     public bool facingLeft = true;
 
     private SpriteRenderer rend;
-    private GameObject gameOverPanel;
-    private GameObject levelChanger;
+    public GameObject gameOverPanel;
+    public GameObject levelChanger;
 	private bool canHide = false;
 	public bool hiding = false;
     public FoodBar foodBar;
@@ -32,6 +33,7 @@ public class CharacterMovement : MonoBehaviour
 
     void Start()
     {
+        status = "1";
         // Deal with duplicates in DontDestroyOnLoad
         if (Instance != null)
         {
@@ -42,7 +44,7 @@ public class CharacterMovement : MonoBehaviour
         Instance = this;
         GameObject.DontDestroyOnLoad(this.gameObject);
 
-        gameOverPanel = GameObject.Find("GameOverPanel");
+        gameOverPanel = GameObject.FindWithTag("Game Over");
         levelChanger = GameObject.Find("Level Changer");
         body = GetComponent<Rigidbody2D>();
         rend = GetComponent<SpriteRenderer>();
@@ -75,6 +77,7 @@ public class CharacterMovement : MonoBehaviour
 			rend.sortingOrder = 3;
 			hiding = false;
 		}
+
     }
 
     void FixedUpdate()
@@ -96,7 +99,7 @@ public class CharacterMovement : MonoBehaviour
         transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(0, flipRatio, -1 * targetAngle * vertical), rotateSpeed * Time.deltaTime);
     }
 
-	private void OnTriggerEnter2D(Collider2D other) {
+	private void OnTriggerStay2D(Collider2D other) {
         // Player entered the hiding spot
 		if (other.gameObject.tag.Equals("Hiding spot")) {
 			canHide = true;
@@ -108,7 +111,7 @@ public class CharacterMovement : MonoBehaviour
         if (CharacterMovement.foodPoint >= maxFood && other.gameObject.tag.Equals("Bed"))
         {
             // If the food bar is full (equls maxFood) start sleep
-
+            status = "12";
             SceneManager.LoadScene(4, LoadSceneMode.Single); // Play closing cutscene
             levelChanger.SetActive(true);
 
@@ -127,9 +130,9 @@ public class CharacterMovement : MonoBehaviour
 
     public void death() {
         // gameObject.GetComponent<Animator>().Play ("PlayerDeath");
+        status = "dead";
         FindObjectOfType<audioManager>().Play("playerDeath");
-        Destroy(gameObject);
-        gameOverPanel.SetActive(true);        
+        Destroy(gameObject);        
 	}
 
     public void eatFood()

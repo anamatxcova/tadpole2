@@ -630,9 +630,9 @@ MonoBehaviour:
   rotateSpeed: 7.5
   runSpeed: 20
   facingLeft: 1
+  gameOverPanel: {fileID: 5148320432681627674, guid: 8d9612c095d4e7c4daea6b4a1b946dd7, type: 3}
+  levelChanger: {fileID: 4612043743364518823, guid: 1047a8975ed20b043846204624ff2e2b, type: 3}
   hiding: 0
-  gameOverPanel: {fileID: 0}
-  levelChanger: {fileID: 0}
   foodBar: {fileID: 0}
 --- !u!60 &5637037275460823934
 PolygonCollider2D:
