@@ -158,6 +158,7 @@ public class CharacterMovement : MonoBehaviour
 
     void FindStartPos()
     {
-        transform.position = GameObject.FindWithTag("StartPos").transform.position;
+        if (GameObject.FindWithTag("StartPos") != null)
+            transform.position = GameObject.FindWithTag("StartPos").transform.position;
     }
 }
