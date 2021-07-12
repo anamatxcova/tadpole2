@@ -2553,7 +2553,7 @@ PrefabInstance:
     - target: {fileID: 2063427531464919522, guid: ea6de0df17e382a4689f7dcaab83419d, type: 3}
       propertyPath: foodBar
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 6240946954104573868, guid: 9827e6789c3c3c347a0673e633f409b8, type: 3}
     - target: {fileID: 2063427531464919522, guid: ea6de0df17e382a4689f7dcaab83419d, type: 3}
       propertyPath: runSpeed
       value: 15
@@ -2561,7 +2561,7 @@ PrefabInstance:
     - target: {fileID: 2063427531464919522, guid: ea6de0df17e382a4689f7dcaab83419d, type: 3}
       propertyPath: gameOverPanel
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 5148320432681627674, guid: 8d9612c095d4e7c4daea6b4a1b946dd7, type: 3}
     - target: {fileID: 2063427531464919535, guid: ea6de0df17e382a4689f7dcaab83419d, type: 3}
       propertyPath: m_ApplyRootMotion
       value: 1
