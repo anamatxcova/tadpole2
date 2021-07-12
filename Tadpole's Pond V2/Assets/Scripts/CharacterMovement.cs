@@ -44,8 +44,6 @@ public class CharacterMovement : MonoBehaviour
         Instance = this;
         GameObject.DontDestroyOnLoad(this.gameObject);
 
-        gameOverPanel = GameObject.FindWithTag("Game Over");
-        levelChanger = GameObject.Find("Level Changer");
         body = GetComponent<Rigidbody2D>();
         rend = GetComponent<SpriteRenderer>();
         foodBar.setBar(foodPoint);
@@ -132,7 +130,8 @@ public class CharacterMovement : MonoBehaviour
         // gameObject.GetComponent<Animator>().Play ("PlayerDeath");
         status = "dead";
         FindObjectOfType<audioManager>().Play("playerDeath");
-        Destroy(gameObject);        
+        Destroy(gameObject); 
+        gameOverPanel.SetActive(true);       
 	}
 
     public void eatFood()
@@ -158,6 +157,7 @@ public class CharacterMovement : MonoBehaviour
 
     void FindStartPos()
     {
-        transform.position = GameObject.FindWithTag("StartPos").transform.position;
+        if (GameObject.FindWithTag("StartPos") != null)
+            transform.position = GameObject.FindWithTag("StartPos").transform.position;
     }
 }
