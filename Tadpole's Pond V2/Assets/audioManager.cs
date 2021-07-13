@@ -1,10 +1,13 @@
 using UnityEngine.Audio;
 using System;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class audioManager : MonoBehaviour
 {
     public Sound[] sounds;
+
+    public Slider volumeSlider;
 
     public static audioManager instance;
 
@@ -32,10 +35,18 @@ public class audioManager : MonoBehaviour
         }
     }
 
-    //void Start()
-    //{
+    void Start()
+    {
     //    Play("Theme");
-    //}
+        if (!PlayerPrefs.HasKey("musicVolume"))
+        {
+            PlayerPrefs.SetFloat("musicVolume", 1);
+        }
+        else
+        {
+            Load();
+        }
+    }
 
     // Update is called once per frame
     public void Play(string name)
@@ -47,5 +58,21 @@ public class audioManager : MonoBehaviour
             return;
         }
         s.source.Play(); 
+    }
+
+    public void ChangeVolume()
+    {
+        AudioListener.volume = volumeSlider.value;
+        Save();
+    }
+
+    void Load()
+    {
+        volumeSlider.value = PlayerPrefs.GetFloat("musicVolume");
+    }
+
+    void Save()
+    {
+        PlayerPrefs.SetFloat("musicVolume", volumeSlider.value);
     }
 }
