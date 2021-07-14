@@ -8,7 +8,7 @@ public class CharacterMovement : MonoBehaviour
     public Rigidbody2D body;
     public Animator animator;
     private float tadLoc;
-    private int maxFood = 5;
+    private int maxFood = 1;
     static int foodPoint = 0;
     public static string status;
 
@@ -34,15 +34,15 @@ public class CharacterMovement : MonoBehaviour
     void Start()
     {
         status = "1";
-        // Deal with duplicates in DontDestroyOnLoad
-        if (Instance != null)
-        {
-            Destroy(this.gameObject);
-            return;
-        }
+        // // Deal with duplicates in DontDestroyOnLoad
+        // if (Instance != null)
+        // {
+        //     Destroy(this.gameObject);
+        //     return;
+        // }
 
-        Instance = this;
-        GameObject.DontDestroyOnLoad(this.gameObject);
+        // Instance = this;
+        // GameObject.DontDestroyOnLoad(this.gameObject);
 
         body = GetComponent<Rigidbody2D>();
         rend = GetComponent<SpriteRenderer>();
@@ -110,8 +110,7 @@ public class CharacterMovement : MonoBehaviour
         {
             // If the food bar is full (equls maxFood) start sleep
             status = "12";
-            SceneManager.LoadScene(4, LoadSceneMode.Single); // Play closing cutscene
-            levelChanger.SetActive(true);
+            SceneManager.LoadScene(4); // Play closing cutscene
 
             // Change tadpole to tadpole with legs here
         }
@@ -129,9 +128,9 @@ public class CharacterMovement : MonoBehaviour
     public void death() {
         // gameObject.GetComponent<Animator>().Play ("PlayerDeath");
         status = "dead";
+        gameOverPanel.SetActive(true);  
         FindObjectOfType<audioManager>().Play("playerDeath");
-        Destroy(gameObject); 
-        gameOverPanel.SetActive(true);       
+        Destroy(gameObject);   
 	}
 
     public void eatFood()
@@ -150,14 +149,15 @@ public class CharacterMovement : MonoBehaviour
         animator.SetBool("isEating", false);
     }
 
-    private void OnLevelWasLoaded(int level)
-    {
-        FindStartPos();
-    }
+    // To carry player between scenes
+    // private void OnLevelWasLoaded(int level)
+    // {
+    //     FindStartPos();
+    // }
 
-    void FindStartPos()
-    {
-        if (GameObject.FindWithTag("StartPos") != null)
-            transform.position = GameObject.FindWithTag("StartPos").transform.position;
-    }
+    // void FindStartPos()
+    // {
+    //     if (GameObject.FindWithTag("StartPos") != null)
+    //         transform.position = GameObject.FindWithTag("StartPos").transform.position;
+    // }
 }
