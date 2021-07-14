@@ -22,6 +22,7 @@ public class KoiFish : MonoBehaviour
 	public bool facingLeft = true;
     float horizontal;
     float vertical;
+    int stunFactor = 1;
 	private Transform player;
 
 
@@ -123,14 +124,14 @@ public class KoiFish : MonoBehaviour
             enemyScale.x *= -1;
             transform.localScale = enemyScale;
         }
-		transform.position = Vector2.MoveTowards(transform.position, player.position, speed * Time.deltaTime);
+		transform.position = Vector2.MoveTowards(transform.position, player.position, speed * Time.deltaTime * stunFactor);
         animatorKoi.SetBool("IsKoiEating", true);
         StartCoroutine(SetBoolKoiEating());
     }
 
 	void goBack()
 	{
-		transform.position = Vector2.MoveTowards(transform.position, startPos, speed * Time.deltaTime);
+		transform.position = Vector2.MoveTowards(transform.position, startPos, speed * Time.deltaTime * stunFactor);
 		if (startPos == transform.position)
         {
             onSpot = true;
@@ -139,7 +140,7 @@ public class KoiFish : MonoBehaviour
 
 	void patrol()
 	{
-		rb.velocity = new Vector3 (rb.transform.localScale.x * (-speed), rb.velocity.y, 0f);
+		rb.velocity = new Vector3 (rb.transform.localScale.x * (-speed) * stunFactor, rb.velocity.y, 0f);
 
 			turnTimer += Time.deltaTime;
 			if(turnTimer >= timeTrigger){
@@ -164,7 +165,7 @@ public class KoiFish : MonoBehaviour
     // Move Enemy character to specified direction
 	void moveCharacter(Vector2 direction)
 	{
-		rb.MovePosition((Vector2)transform.position + (direction * speed * Time.deltaTime));
+		rb.MovePosition((Vector2)transform.position + (direction * speed * Time.deltaTime * stunFactor));
 	}
 
     // Handle triggers
@@ -181,6 +182,19 @@ public class KoiFish : MonoBehaviour
     {
         yield return new WaitForSeconds(5f);
         animatorKoi.SetBool("IsKoiEating", false);
+    }
+
+    IEnumerator Stunned()
+    {
+        yield return new WaitForSeconds(2);
+        stunFactor = 1;
+    }
+
+    public void stun()
+    {
+        rb.velocity = Vector3.zero;
+        stunFactor = 0;
+        StartCoroutine(Stunned());
     }
 }
 

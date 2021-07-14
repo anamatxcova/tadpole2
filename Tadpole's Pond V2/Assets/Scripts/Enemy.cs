@@ -133,6 +133,7 @@ public class Enemy : MonoBehaviour
 
 	public void stun()
     {
+		rb.velocity = Vector3.zero;
 		stunFactor = 0;
 		StartCoroutine(Stunned());
     }

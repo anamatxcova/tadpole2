@@ -16,9 +16,16 @@ public class Bubble : MonoBehaviour
     void OnTriggerEnter2D(Collider2D hitObject)
     {
         Enemy enemy = hitObject.GetComponent<Enemy>();
+        KoiFish koifish = hitObject.GetComponent<KoiFish>();
         if (enemy != null)
         {
             enemy.stun();
+            Destroy(gameObject);
+        }
+        else if (koifish != null)
+        {
+            koifish.stun();
+            Destroy(gameObject);
         }
     }
 }
