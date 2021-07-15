@@ -5641,7 +5641,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   firePoint: {fileID: 917715292}
   bubblePrefab: {fileID: 4188342591218624397, guid: 76de440dd60a42340887787ea5564baa, type: 3}
-  reloadTime: 3
+  reloadTime: 2
 --- !u!114 &601727577
 MonoBehaviour:
   m_ObjectHideFlags: 0
