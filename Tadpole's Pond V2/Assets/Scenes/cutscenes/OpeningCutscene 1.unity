@@ -2699,7 +2699,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 212003484}
         m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
         m_MethodName: ResumeGame
         m_Mode: 1
@@ -4833,7 +4833,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 212003484}
         m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
         m_MethodName: LoasMenu
         m_Mode: 1
@@ -12479,11 +12479,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6240946954104573869, guid: 9827e6789c3c3c347a0673e633f409b8, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 213
+      value: 353
       objectReference: {fileID: 0}
     - target: {fileID: 6240946954104573869, guid: 9827e6789c3c3c347a0673e633f409b8, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 164
+      value: 270
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9827e6789c3c3c347a0673e633f409b8, type: 3}
