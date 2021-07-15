@@ -4,23 +4,19 @@ using UnityEngine;
 
 public class DialogueTrigger : MonoBehaviour
 {
+    public GameObject smallCanvas;
 
-    public Dialogue dialogue;
+    // Player is in dialog trigger area
+    private void OnTriggerEnter2D(Collider2D other) {
+		if (other.gameObject.tag.Equals("Player") && smallCanvas.activeInHierarchy == false) {
+			smallCanvas.SetActive(true);
+		}
+	}
 
-    public void TriggerDialogue()
-    {
-        FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
-    }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    // Player exited dialogue trigger area
+	private void OnTriggerExit2D(Collider2D other) {
+		if (other.gameObject.tag.Equals("Player")) {
+			smallCanvas.SetActive(false);
+		}
+	}
 }

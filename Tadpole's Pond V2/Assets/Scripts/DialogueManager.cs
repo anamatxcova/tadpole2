@@ -2,49 +2,59 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class DialogueManager : MonoBehaviour
 {
-    private Queue<string> sentences;
-    public Text nameTxt;
-    public Text dialogueTxt;
 
-    // Start is called before the first frame update
-    void Start()
+    public TextMeshProUGUI textDisplay;
+    public string[] sentences;
+    private int index;
+    public float typingSpeed;
+    public GameObject dialoguePanel;
+    public GameObject contunueButton;
+    public GameObject smallCanvas;
+
+    private void Start()
     {
-        sentences = new Queue<string>();
+        StartCoroutine(Type());
     }
 
-    public void StartDialogue (Dialogue dialogue)
+        // Update is called once per frame
+    void Update()
     {
-        Debug.Log("Starting conversation with " + dialogue.name);
-
-        nameTxt.text = dialogue.name;
-
-        sentences.Clear();
-
-        foreach (string sentence in dialogue.sentences)
+        if (Input.GetKeyDown(KeyCode.X) && smallCanvas.activeInHierarchy == true)
         {
-            sentences.Enqueue(sentence);
+            dialoguePanel.SetActive(true);
         }
 
-        DisplayNextSentence();
+        if (textDisplay.text == sentences[index])
+        {
+            contunueButton.SetActive(true);
+        }
+    }
+
+    IEnumerator Type()
+    {
+        foreach (char letter in sentences[index].ToCharArray())
+        {
+            textDisplay.text += letter;
+            yield return new WaitForSeconds(0.02f);
+        }
     }
 
     public void DisplayNextSentence()
     {
-        if (sentences.Count == 0)
+        contunueButton.SetActive(false);
+        if (index < sentences.Length - 1)
         {
-            EndDialogue();
-            return;
+            index++;
+            textDisplay.text = "";
+            StartCoroutine(Type());
         }
-
-        string sentence = sentences.Dequeue();
-        dialogueTxt.text = sentence;
-    }
-
-    void EndDialogue()
-    {
-
+        else
+        {
+            dialoguePanel.SetActive(false);
+        }
     }
 }
