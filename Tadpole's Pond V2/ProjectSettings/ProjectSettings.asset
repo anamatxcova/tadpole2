@@ -651,7 +651,7 @@ PlayerSettings:
   webGLTemplate: APPLICATION:Default
   webGLAnalyzeBuildSize: 0
   webGLUseEmbeddedResources: 0
-  webGLCompressionFormat: 1
+  webGLCompressionFormat: 2
   webGLWasmArithmeticExceptions: 0
   webGLLinkerTarget: 1
   webGLThreadsSupport: 0
@@ -731,7 +731,7 @@ PlayerSettings:
   XboxOneOverrideIdentityPublisher: 
   vrEditorSettings: {}
   cloudServicesEnabled:
-    Analytics: 0
+    Analytics: 1
     Build: 0
     Collab: 0
     Game Performance: 0
@@ -751,11 +751,11 @@ PlayerSettings:
     m_VersionName: 
   apiCompatibilityLevel: 6
   activeInputHandler: 2
-  cloudProjectId: 7ecbc925-0935-4439-b938-375116bc0515
+  cloudProjectId: 450ffe1b-62e6-4d28-97d5-7c613cf00294
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
-  projectName: TadpolesPond
-  organizationId: pareot
+  projectName: Tadpole's Pond V2
+  organizationId: anyanguyen
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
   virtualTexturingSupportEnabled: 0
