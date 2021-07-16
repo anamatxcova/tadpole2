@@ -505,7 +505,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
   m_AnchoredPosition: {x: 0, y: 64}
-  m_SizeDelta: {x: 500, y: 120}
+  m_SizeDelta: {x: 700, y: 220}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &170493574
 MonoBehaviour:
@@ -3720,7 +3720,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &977914245
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3738,7 +3738,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 171, y: -44.1}
+  m_AnchoredPosition: {x: 237, y: -77}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &977914246
@@ -4519,8 +4519,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 12
-  m_fontSizeBase: 12
+  m_fontSize: 20
+  m_fontSizeBase: 20
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -4555,7 +4555,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: -98.57623, y: -24.200638, z: -110.68213, w: -29.386475}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -4605,10 +4605,11 @@ MonoBehaviour:
   - "It's safe here, but outside is the only place you can eat and grow\u2026"
   - "As a young tadpole, there are a lot of enemies that want to eat you. You must
     avoid them and scavenge for small creatures like daphnias\u2026"
-  - "Use WASD or  \u2191  \u2190  \u2193  \u2192   keys to move and left click to
-    release a bubble that can temporarily stun your enemy\u2026"
-  - "You should be cautious and remember you can always come back to the turtle shell
-    to seek shelter\u2026"
+  - "Use WASD or  \u2191  \u2190  \u2193  \u2192   keys to move and Left Mouse click
+    to release a bubble that can temporarily stun your enemy. Press ESC to pause
+    ..."
+  - 'You should be cautious and remember you can always come back to the turtle shell
+    to seek shelter. Outside of the shell yu can hide in logs ... '
   - 'Once you eat your full, you should come back here to take a nap on the leaf
     bed to evolve ... '
   - 'You are free to go now. I wish you good luck on your journey! '
@@ -10391,7 +10392,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -175.5, y: 31.7}
+  m_AnchoredPosition: {x: -268, y: 68}
   m_SizeDelta: {x: 100, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1441878832
@@ -10441,8 +10442,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 15
-  m_fontSizeBase: 15
+  m_fontSize: 25
+  m_fontSizeBase: 25
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -11518,8 +11519,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 15
-  m_fontSizeBase: 15
+  m_fontSize: 20
+  m_fontSizeBase: 20
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -11956,7 +11957,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1902195015
 RectTransform:
   m_ObjectHideFlags: 0
