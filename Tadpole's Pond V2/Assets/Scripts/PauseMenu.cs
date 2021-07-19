@@ -2,12 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class PauseMenu : MonoBehaviour
 {
     public static bool gameIsPaused = false;
 
     public GameObject pauseMenu;
+
+    public Slider volumeSlider;
 
     // Update is called once per frame
     void Update()
@@ -37,6 +40,19 @@ public class PauseMenu : MonoBehaviour
         pauseMenu.SetActive(true);
         Time.timeScale = 0f;
         gameIsPaused = true;
+        if (volumeSlider != null)
+            volumeSlider.value = PlayerPrefs.GetFloat("musicVolume");
+    }
+
+    public void ChangeVolume()
+    {
+        AudioListener.volume = volumeSlider.value;
+        Save();
+    }
+
+    void Save()
+    {
+        PlayerPrefs.SetFloat("musicVolume", volumeSlider.value);
     }
 
     public void LoasMenu()

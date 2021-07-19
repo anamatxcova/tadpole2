@@ -34,6 +34,7 @@ public class CharacterMovement : MonoBehaviour
     void Start()
     {
         status = "1";
+        
         // // Deal with duplicates in DontDestroyOnLoad
         // if (Instance != null)
         // {
@@ -76,6 +77,11 @@ public class CharacterMovement : MonoBehaviour
 			hiding = false;
 		}
 
+        // Check when tadpole can sleep
+        if (CharacterMovement.foodPoint >= maxFood)
+        {
+            status = "12";
+        }
     }
 
     void FixedUpdate()
@@ -86,6 +92,7 @@ public class CharacterMovement : MonoBehaviour
             horizontal *= moveLimiter;
             vertical *= moveLimiter;
         }
+
         if ((horizontal > 0 && facingLeft) || (horizontal < 0 && !facingLeft)) // only flip when the tadpole is facing the other way
         {
             facingLeft = !facingLeft;
@@ -104,16 +111,6 @@ public class CharacterMovement : MonoBehaviour
 			other.gameObject.GetComponent<SpriteRenderer>().color = new Color (1, 1, 1, 0.5f);
 			Debug.Log("Player entered the hiding spot");
 		}
-
-        // Player is on the bed
-        if (CharacterMovement.foodPoint >= maxFood && other.gameObject.tag.Equals("Bed"))
-        {
-            // If the food bar is full (equls maxFood) start sleep
-            status = "12";
-            SceneManager.LoadScene(4); // Play closing cutscene
-
-            // Change tadpole to tadpole with legs here
-        }
 	}
 
     // Player exited hiding spot

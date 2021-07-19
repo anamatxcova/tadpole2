@@ -60,19 +60,20 @@ public class audioManager : MonoBehaviour
         s.source.Play(); 
     }
 
-    public void ChangeVolume()
-    {
-        AudioListener.volume = volumeSlider.value;
-        Save();
-    }
+    // public void ChangeVolume()
+    // {
+    //     AudioListener.volume = volumeSlider.value;
+    //     Save();
+    // }
 
     void Load()
     {
-        volumeSlider.value = PlayerPrefs.GetFloat("musicVolume");
+        if (volumeSlider != null)
+            volumeSlider.value = PlayerPrefs.GetFloat("musicVolume");
     }
 
-    void Save()
-    {
-        PlayerPrefs.SetFloat("musicVolume", volumeSlider.value);
-    }
+    // void Save()
+    // {
+    //     PlayerPrefs.SetFloat("musicVolume", volumeSlider.value);
+    // }
 }
