@@ -26,6 +26,7 @@ public class CharacterMovement : MonoBehaviour
     private SpriteRenderer rend;
     public GameObject gameOverPanel;
     public GameObject levelChanger;
+    public GameObject playerHolder;
 	private bool canHide = false;
 	public bool hiding = false;
     public FoodBar foodBar;
@@ -45,7 +46,7 @@ public class CharacterMovement : MonoBehaviour
         // Instance = this;
         // GameObject.DontDestroyOnLoad(this.gameObject);
 
-        body = GetComponent<Rigidbody2D>();
+        body = playerHolder.GetComponent<Rigidbody2D>();
         rend = GetComponent<SpriteRenderer>();
         foodBar.setBar(foodPoint);
     }
@@ -57,9 +58,8 @@ public class CharacterMovement : MonoBehaviour
         horizontal = Input.GetAxisRaw("Horizontal"); // -1 is left
         vertical = Input.GetAxisRaw("Vertical"); // -1 is down
 
-        tadLoc = vertical + horizontal;
-        animator.SetFloat("Speed", Mathf.Abs(tadLoc));
-
+        tadLoc = Mathf.Abs(vertical) + Mathf.Abs(horizontal);
+        animator.SetFloat("Speed", tadLoc);
 
         // Hiding the player from https://www.youtube.com/watch?v=7kIOeELWwbI&t=51s
         if (canHide)
@@ -97,11 +97,11 @@ public class CharacterMovement : MonoBehaviour
         {
             facingLeft = !facingLeft;
             flipRatio = 180 - flipRatio;
-            transform.Rotate(0f, 180f, 0f);
-            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(0, flipRatio, transform.rotation.z), 1f);
+            playerHolder.transform.Rotate(0f, 180f, 0f);
+            playerHolder.transform.rotation = Quaternion.Slerp(playerHolder.transform.rotation, Quaternion.Euler(0, flipRatio, playerHolder.transform.rotation.z), 1f);
         }
         body.velocity = new Vector2(horizontal * runSpeed, vertical * runSpeed);
-        transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(0, flipRatio, -1 * targetAngle * vertical), rotateSpeed * Time.deltaTime);
+        playerHolder.transform.rotation = Quaternion.Slerp(playerHolder.transform.rotation, Quaternion.Euler(0, flipRatio, -1 * targetAngle * vertical), rotateSpeed * Time.deltaTime);
     }
 
 	private void OnTriggerStay2D(Collider2D other) {
