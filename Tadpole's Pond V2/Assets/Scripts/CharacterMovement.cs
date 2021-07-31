@@ -9,7 +9,7 @@ public class CharacterMovement : MonoBehaviour
     public Animator animator;
     private float tadLoc;
     private int maxFood = 1;
-    static int foodPoint = 0;
+    public static int foodPoint = 0;
     public static string status;
 
     float horizontal;

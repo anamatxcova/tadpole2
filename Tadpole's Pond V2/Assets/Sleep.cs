@@ -12,6 +12,7 @@ public class Sleep : MonoBehaviour
         {
             // Change Player status and reset foodbar
             CharacterMovement.status = "2";
+            CharacterMovement.foodPoint = 0;
             
             // If the food bar is full (equls maxFood) start sleep
             SceneManager.LoadScene(4); // Play closing cutscene
