@@ -7,7 +7,7 @@ public class DialogueTrigger : MonoBehaviour
     public GameObject smallCanvas;
 
     // Player is in dialog trigger area
-    private void OnTriggerEnter2D(Collider2D other) {
+    private void OnTriggerStay2D(Collider2D other) {
 		if (other.gameObject.tag.Equals("Player") && smallCanvas.activeInHierarchy == false) {
 			smallCanvas.SetActive(true);
 		}
