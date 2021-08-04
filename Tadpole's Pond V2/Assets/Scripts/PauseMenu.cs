@@ -55,7 +55,7 @@ public class PauseMenu : MonoBehaviour
         PlayerPrefs.SetFloat("musicVolume", volumeSlider.value);
     }
 
-    public void LoasMenu()
+    public void LoadMenu()
     {
         SceneManager.LoadScene(0);
         Time.timeScale = 1f;

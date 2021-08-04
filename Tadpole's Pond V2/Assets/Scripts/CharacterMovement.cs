@@ -8,7 +8,7 @@ public class CharacterMovement : MonoBehaviour
     public Rigidbody2D body;
     public Animator animator;
     private float tadLoc;
-    private int maxFood = 1;
+    private int maxFood = 10;
     public static int foodPoint = 0;
     public static string status;
 
