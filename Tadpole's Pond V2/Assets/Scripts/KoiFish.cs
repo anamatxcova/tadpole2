@@ -40,7 +40,7 @@ public class KoiFish : MonoBehaviour
 		timeTrigger = 5f;
         scale = transform.localScale.x;
         posX = transform.position.x;
-        direction = 1;
+        // direction = 1;
     }
 
     void Update()

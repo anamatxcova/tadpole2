@@ -10,11 +10,11 @@ public class Mouth : MonoBehaviour
 
     private float nextBubbleTime = 0f;
 
-    private CharacterMovement thePlayer;
+    private CutSceneMovement thePlayer;
 
     private void Start()
     {
-        thePlayer = FindObjectOfType<CharacterMovement>();
+        thePlayer = FindObjectOfType<CutSceneMovement>();
     }
 
     // Update is called once per frame

@@ -9,11 +9,11 @@ public class groundCheck : MonoBehaviour
     GameObject dustCloud;
 
     bool coroutineAllowed, grounded;
-    private CharacterMovement thePlayer;
+    private CutSceneMovement thePlayer;
 
     private void Start()
     {
-        thePlayer = FindObjectOfType<CharacterMovement>();
+        thePlayer = FindObjectOfType<CutSceneMovement>();
     }
 
     void OnTriggerEnter2D(Collider2D col)
@@ -43,7 +43,7 @@ public class groundCheck : MonoBehaviour
             coroutineAllowed = false;
         }
 
-        if (thePlayer.body.velocity.x ==0 || grounded)
+        if (thePlayer.body.velocity.x == 0 || grounded)
         {
             StopCoroutine("SpawnCloud");
             coroutineAllowed = true;
