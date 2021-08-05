@@ -1211,6 +1211,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseMenu: {fileID: 851613700}
+  endOfGame: {fileID: 0}
   volumeSlider: {fileID: 0}
 --- !u!1 &246873211
 GameObject:
@@ -4532,7 +4533,7 @@ MonoBehaviour:
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
-  m_lineSpacing: 2
+  m_lineSpacing: 5
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
@@ -12854,9 +12855,9 @@ GameObject:
   - component: {fileID: 435003601778393876}
   - component: {fileID: 2844567884591224634}
   - component: {fileID: 2844567884591224628}
+  - component: {fileID: 743500925976413152}
   - component: {fileID: 2844567884591224635}
   - component: {fileID: 2844567884591224629}
-  - component: {fileID: 743500925976413152}
   - component: {fileID: 743500925976413154}
   - component: {fileID: 8494330449937266084}
   - component: {fileID: 743500925976413153}
@@ -12876,12 +12877,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 743500925976413151}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d8eaaa538cd13e245b770a5bf054a0b8, type: 3}
+  m_Script: {fileID: 11500000, guid: 8e40db534e806084cb2f3f34a60a562a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   firePoint: {fileID: 1859342550}
   bubblePrefab: {fileID: 4188342591218624397, guid: 76de440dd60a42340887787ea5564baa, type: 3}
-  reloadTime: 2
+  reloadTime: 3
 --- !u!50 &743500925976413153
 Rigidbody2D:
   serializedVersion: 4
@@ -13661,7 +13662,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8629248403835941119}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 916ecadd42f0795458a2387b35e4933a, type: 3}
   m_Name: 
