@@ -9,11 +9,11 @@ public class groundCheck : MonoBehaviour
     GameObject dustCloud;
 
     bool coroutineAllowed, grounded;
-    private CutSceneMovement thePlayer;
+    private CharacterMovement thePlayer;
 
     private void Start()
     {
-        thePlayer = FindObjectOfType<CutSceneMovement>();
+        thePlayer = FindObjectOfType<CharacterMovement>();
     }
 
     void OnTriggerEnter2D(Collider2D col)

@@ -9,10 +9,10 @@ public class PauseMenu : MonoBehaviour
     public static bool gameIsPaused = false;
 
     public GameObject pauseMenu;
+    public GameObject endOfGame;
 
     public Slider volumeSlider;
 
-    // Update is called once per frame
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
@@ -59,5 +59,11 @@ public class PauseMenu : MonoBehaviour
     {
         SceneManager.LoadScene(0);
         Time.timeScale = 1f;
+    }
+
+    // Close in-progress massage
+    public void CloseMessage()
+    {
+        endOfGame.SetActive(false);
     }
 }
