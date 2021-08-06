@@ -1212,7 +1212,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pauseMenu: {fileID: 851613700}
   endOfGame: {fileID: 0}
-  volumeSlider: {fileID: 0}
+  volumeSlider: {fileID: 1040628794}
 --- !u!1 &246873211
 GameObject:
   m_ObjectHideFlags: 0
@@ -4838,7 +4838,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 212003484}
         m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
-        m_MethodName: LoasMenu
+        m_MethodName: LoadMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
